@@ -1,0 +1,10 @@
+lmdb
+pandas
+numpy
+numpy-quaternion
+opencv-python
+tensorboardX
+tensorboard
+matplotlib
+numba
+scipy
