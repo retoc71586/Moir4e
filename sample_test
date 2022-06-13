@@ -1,0 +1,38 @@
+Sender: LSF System <lsfadmin@eu-lo-s4-039>
+Subject: Job 221474960: <python evaluate.py --model_id 1655040841> in cluster <euler> Done
+
+Job <python evaluate.py --model_id 1655040841> was submitted from host <eu-login-06> by user <gmanzoni> in cluster <euler> at Mon Jun 13 10:57:43 2022
+Job was executed on host(s) <6*eu-lo-s4-039>, in queue <gpu.4h>, as user <gmanzoni> in cluster <euler> at Mon Jun 13 10:57:49 2022
+</cluster/home/gmanzoni> was used as the home directory.
+</cluster/home/gmanzoni/project2> was used as the working directory.
+Started at Mon Jun 13 10:57:49 2022
+Terminated at Mon Jun 13 11:03:09 2022
+Results reported at Mon Jun 13 11:03:09 2022
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python evaluate.py --model_id 1655040841
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   274.33 sec.
+    Max Memory :                                 5129 MB
+    Average Memory :                             4104.23 MB
+    Total Requested Memory :                     6144.00 MB
+    Delta Memory :                               1015.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                7
+    Run time :                                   343 sec.
+    Turnaround time :                            326 sec.
+
+The output (if any) follows:
+
+using device:  cuda:0
+Model created with 7919738 trainable parameters
+Loaded weights from /cluster/scratch/gmanzoni/experiments/1655040841-DCT_ATT_GCN-lr0.0005/model.pth
