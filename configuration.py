@@ -57,6 +57,19 @@ class Configuration(object):
     def parse_cmd():
         parser = argparse.ArgumentParser()
 
+        #Additionals
+    
+        parser.add_argument('--model', type=str, default=None, help='Defines the model to train on.')
+        parser.add_argument('--opt', type=str, choices={"adam", "sgd"}, default="sgd", help='Type of optimizer') 
+        parser.add_argument('--use_lr_decay', help='Use LR decay', action = "store_true")
+        parser.add_argument('--lr_decay_rate', type=float, default=0.98, help='Learning rate decay rate.')
+        parser.add_argument('--lr_decay_step', type=float, default=1000, help='Learning rate decay step.')
+        parser.add_argument('--clip_gradient', help='Use gradient clipping to l2 norm max_norm', action = "store_true")
+        parser.add_argument('--max_norm', type=float, default=1,help='max norm for gradient clipping')
+        parser.add_argument('--nr_dct_dim', type=int, default=20, help='number of dct dimension')
+        parser.add_argument('--loss_type', type=str, choices={"mse", "rmse", "per_joint", "avg_l1" }, default="mse", help='Type of loss')
+        parser.add_argument('--kernel_size', type=int, default=10, help='number of past frames to look to predict the future')
+
         # General.
         parser.add_argument('--data_workers', type=int, default=4, help='Number of parallel threads for data loading.')
         parser.add_argument('--print_every', type=int, default=200, help='Print stats to console every so many iters.')

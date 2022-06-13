@@ -197,6 +197,8 @@ def visualize_positions(positions, colors, titles, fig_title, parents, change_co
                                        fargs=(pos, all_lines, parents, colors + [colors[0]]),
                                        interval=1000/fps)
 
+    writergif = animation.PillowWriter(fps=60) 
+    line_ani.save('prima_prova.gif', writer=writergif)
     plt.show()
     plt.close()
 

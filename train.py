@@ -27,6 +27,9 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import transforms
 
 
+# config comes from configuration.parse_cmd() see it for settings
+
+
 def _log_loss_vals(loss_vals, writer, global_step, mode_prefix):
     for k in loss_vals:
         prefix = '{}/{}'.format(k, mode_prefix)
@@ -115,7 +118,7 @@ def main(config):
     # Set the pose size in the config as models use this later.
     setattr(config, 'pose_size', 135)
 
-    # Create the model.
+    # Create the model. WERE THE NET IS BORN
     net = create_model(config)
     net.to(C.DEVICE)
     print('Model created with {} trainable parameters'.format(U.count_parameters(net)))
@@ -132,6 +135,9 @@ def main(config):
     # Save code as zip and config as json into the model directory.
     code_files = glob.glob('./*.py', recursive=False)
     U.export_code(code_files, os.path.join(model_dir, 'code.zip'))
+
+    print("\n model dir", model_dir)
+
     config.to_json(os.path.join(model_dir, 'config.json'))
 
     # Save the command line that was used.
@@ -226,4 +232,5 @@ def main(config):
 
 
 if __name__ == '__main__':
+    
     main(Configuration.parse_cmd())
