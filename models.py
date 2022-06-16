@@ -22,8 +22,13 @@ from torch._C import _ImperativeEngine as ImperativeEngine
 from gcn import GCN
 
 def create_model(config):
-    print('using device: ', C.DEVICE)
-    return DCT_ATT_GCN(config)
+    if config.model == 'seq2seq_lstm':
+        from Seq2Seq_LSTM import Seq2Seq_LSTM
+        return Seq2Seq_LSTM(config)
+    else:
+        print('using device: ', C.DEVICE)
+        return DCT_ATT_GCN(config)
+    
 
 class BaseModel(nn.Module):
     """A base class for neural networks that defines an interface and implements a few common functions."""
@@ -76,7 +81,6 @@ graph convolutional networks.
 """
 
 class DCT_ATT_GCN(BaseModel):
-  
 
     def __init__(self, config):
         self.seed_seq_len   = config.seed_seq_len
@@ -103,7 +107,6 @@ class DCT_ATT_GCN(BaseModel):
 
 
     def create_model(self):
-        
         self.convQ = nn.Sequential(nn.Conv1d(in_channels=self.input_size,
                                              out_channels=self.hidden_feature,
                                              kernel_size=(self.kernel_size//2 + 1),

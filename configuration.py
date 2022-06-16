@@ -62,10 +62,11 @@ class Configuration(object):
         parser.add_argument('--use_lr_decay', default=True, help='Use LR decay', action = "store_true")
         parser.add_argument('--lr_decay_rate', type=float, default=0.98, help='Learning rate decay rate.')
         parser.add_argument('--lr_decay_step', type=float, default=330, help='Learning rate decay step.')
-        parser.add_argument('--clip_gradient', type=bool, default=True, help='Use gradient clipping to l2 norm max_norm')
+        parser.add_argument('--clip_gradient', help='Use gradient clipping to l2 norm max_norm', action = "store_true")
         parser.add_argument('--max_norm', type=float, default=1,help='max norm for gradient clipping')
         parser.add_argument('--nr_dct_dim', type=int, default=64, help='number of dct dimension')
         parser.add_argument('--kernel_size', type=int, default=40, help='number of past frames to look to predict the future')
+        parser.add_argument('--model', type=str, default=None, help='Defines the model to train on.')
 
         # model dct_att_gcn --n_epochs 1000 --lr 0.0005 --use_lr_decay --lr_decay_step 330 --bs_train 128 
         # --bs_eval 128 --nr_dct_dim 64 --loss_ABtype avg_l1 --lr_decay_rate 0.98 --opt adam --kernel_size 40
@@ -83,10 +84,10 @@ class Configuration(object):
         parser.add_argument('--target_seq_len', type=int, default=24, help='How many frames to predict.')
 
         # Learning configurations.
-        parser.add_argument('--lr', type=float, default=0.0003, help='Learning rate.')
-        parser.add_argument('--n_epochs', type=int, default=50, help='Number of epochs.')
-        parser.add_argument('--bs_train', type=int, default=16, help='Batch size for the training set.')
-        parser.add_argument('--bs_eval', type=int, default=16, help='Batch size for valid/test set.')
+        parser.add_argument('--lr', type=float, default=0.0005, help='Learning rate.')
+        parser.add_argument('--n_epochs', type=int, default=1000, help='Number of epochs.')
+        parser.add_argument('--bs_train', type=int, default=128, help='Batch size for the training set.')
+        parser.add_argument('--bs_eval', type=int, default=128, help='Batch size for valid/test set.')
 
         config = parser.parse_args()
         return Configuration(vars(config))
