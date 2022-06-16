@@ -1,6 +1,9 @@
 # Moir4e
 2022 Machine Perception project 2 - Human Motion Prediction
 
+You can find all info regarding the architecture in the project report. 
+The dct_att_gcn model scored 1st on the public leaderboard achieving state of the art performance. 
+
 To train dct att gcn model on cluster: 
 ``` $ bsub -n 6 -W 4:00 -o model_dct_att_gcn -R "rusage[mem=1024, ngpus_excl_p=1]" python train.py ```
 
