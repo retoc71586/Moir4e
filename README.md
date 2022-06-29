@@ -6,7 +6,7 @@ Predicting future motion of human body model using frame sequences:
 
 You can find a detiled description of the architecture in the [project report](Moir4e/Machine_Perception_Report_Moi4e.pdf). 
 
-The **dct_att_gcn** model **scored 1st on the public leaderboard** achieving state of the art performance. 
+ ### --> The **dct_att_gcn** model **scored 1st on the public leaderboard** achieving state of the art performance. :tada:
 
 - To train dct att gcn model on cluster: 
 ``` 
