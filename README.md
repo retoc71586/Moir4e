@@ -4,7 +4,7 @@
 Predicting future motion of human body model using frame sequences:
 <img src = "random_sample.gif" scale="0.3" title = "Predicting future motion of human body model using frame sequences"/>
 
-You can find a detiled description of the architecture in the [project report](Moir4e/Machine_Perception_Report_Moi4e.pdf). 
+You can find a detiled description of the architecture in the [project report](Machine_Perception_Report_Moi4e.pdf). 
 
  #### :tada: The **dct_att_gcn** model **scored 1st on the public leaderboard** achieving state of the art performance :tada:
 
